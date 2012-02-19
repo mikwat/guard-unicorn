@@ -13,15 +13,15 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "guard-unicorn"
 
-  s.add_dependency 'guard', '~> 0.6.3'
+  s.add_dependency 'guard', '>= 0.6.3'
 
-  s.add_development_dependency 'bundler',         '~> 1.0.18'
-  s.add_development_dependency 'rspec',           '~> 2.6.0'
-  s.add_development_dependency 'guard-rspec',     '~> 0.4.5'
-  s.add_development_dependency 'guard-bundler',   '~> 0.1.3'
+  s.add_development_dependency 'bundler',         '>= 1.0.18'
+  s.add_development_dependency 'rspec',           '>= 2.6.0'
+  s.add_development_dependency 'guard-rspec',     '>= 0.4.5'
+  s.add_development_dependency 'guard-bundler',   '>= 0.1.3'
   # Yeah, that's right, I develop on Linux. Get over it.
-  s.add_development_dependency 'rb-inotify',      '~> 0.8.6'
-  s.add_development_dependency 'libnotify',       '~> 0.5.7'
+  s.add_development_dependency 'rb-inotify',      '>= 0.8.6'
+  s.add_development_dependency 'libnotify',       '>= 0.5.7'
   s.add_development_dependency 'rake'
 
   s.files         = `git ls-files`.split("\n")
