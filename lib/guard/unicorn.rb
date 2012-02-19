@@ -37,7 +37,17 @@ module Guard
       true
     end
 
+    def run_on_change(paths = {})
+      restart
+    end
+
     private
+    
+    def restart
+      UI.info "Restarting WEBrick..."
+      stop
+      start
+    end
 
     def command
       com = "unicorn -l #{@options[:host]}:#{@options[:port]}"
