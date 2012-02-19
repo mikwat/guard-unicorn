@@ -1,0 +1,3 @@
+guard 'unicorn', :environment => 'development' do
+  watch(%r{^lib/(.+)\.rb})
+end
