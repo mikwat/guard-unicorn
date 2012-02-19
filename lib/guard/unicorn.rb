@@ -12,7 +12,7 @@ module Guard
       @options = {
         :host         => '0.0.0.0',
         :port         => 8080,
-        :workers      => 2,
+        :environment  => nil,
         :config_file  => nil
       }.update(options)
     end
@@ -40,7 +40,9 @@ module Guard
     private
 
     def command
-      "unicorn -l #{@options[:host]}:#{@options[:port]}"
+      com = "unicorn -l #{@options[:host]}:#{@options[:port]}"
+      com += " --env #{@options[:environment]}" if @options[:environment]
+      com
     end
 
     def running?
