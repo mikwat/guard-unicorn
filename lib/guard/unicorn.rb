@@ -42,7 +42,7 @@ module Guard
     end
 
     private
-    
+
     def restart
       UI.info "Restarting WEBrick..."
       stop
@@ -52,6 +52,7 @@ module Guard
     def command
       com = "unicorn -l #{@options[:host]}:#{@options[:port]}"
       com += " --env #{@options[:environment]}" if @options[:environment]
+      com += " 2>&1"
       com
     end
 
