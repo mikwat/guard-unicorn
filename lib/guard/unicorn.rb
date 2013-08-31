@@ -44,7 +44,7 @@ module Guard
     private
 
     def restart
-      UI.info "Restarting WEBrick..."
+      UI.info "Restarting Unicorn..."
       stop
       start
     end
