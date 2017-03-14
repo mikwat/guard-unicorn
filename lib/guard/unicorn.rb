@@ -1,13 +1,12 @@
-require "guard"
-require "guard/guard"
+require 'guard/compat/plugin'
 require 'timeout'
 
 module Guard
-  class Unicorn < Guard
+  class Unicorn < Plugin
 
     attr_reader :pid
 
-    def initialize(watchers=[], options={})
+    def initialize(options = {})
       super
       @options = {
         :host         => '0.0.0.0',
@@ -18,13 +17,13 @@ module Guard
     end
 
     def start
-      UI.info "Starting unicorn"
+      Compat::UI.info "Starting unicorn"
       if running?
-        UI.error "Unicorn already running at #{@options[:host]}:#{@options[:port]}"
+        Compat::UI.info "Unicorn already running at #{@options[:host]}:#{@options[:port]}"
         false
       else
         @process = IO.popen(command)
-        UI.info "Started unicorn"
+        Compat::UI.info "Started unicorn"
         wait_for_port
         @pid = @process.pid
       end
@@ -44,7 +43,7 @@ module Guard
     private
 
     def restart
-      UI.info "Restarting Unicorn..."
+      Compat::UI.info "Restarting Unicorn..."
       stop
       start
     end
